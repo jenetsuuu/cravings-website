@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Craving's K-Mart | DIY Korean Ramyeon Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden bg-[#FFF0F5]">
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-pink-200/50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#home" class="flex items-center space-x-3 group cursor-pointer">
+                    <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg group-hover:rotate-12 transition-transform duration-300">K</div>
+                    <div>
+                        <span class="font-display font-bold text-2xl text-gray-900 block leading-none">The Craving's</span>
+                        <span class="font-display font-bold text-lg text-pink-500 leading-none">K-Mart</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-500 font-semibold transition-colors relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#problem" class="text-gray-700 hover:text-pink-500 font-semibold transition-colors relative group">
+                        Why Us
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#menu" class="text-gray-700 hover:text-pink-500 font-semibold transition-colors relative group">
+                        Menu
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#locations" class="text-gray-700 hover:text-pink-500 font-semibold transition-colors relative group">
+                        Locations
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                
+                <a href="#locations" class="btn-primary text-white px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 group">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <span>Visit Now</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-20">
+        <div class="blob bg-pink-300 w-[500px] h-[500px] top-20 -left-40"></div>
+        <div class="blob bg-purple-300 w-[400px] h-[400px] bottom-20 -right-40" style="animation-delay: 2s;"></div>
+        <div class="blob bg-yellow-200 w-[300px] h-[300px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style="animation-delay: 4s;"></div>
+        
+        <div class="absolute inset-0 grid-pattern"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left scroll-reveal">
+                    <div class="inline-flex items-center gap-2 mb-6 px-5 py-2.5 glass rounded-full border border-pink-300/50 shadow-sm cursor-pointer hover:scale-105 transition-transform" onclick="scrollToSection('locations')">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                        </span>
+                        <span class="text-pink-700 font-bold text-sm tracking-wide uppercase">3 Branches in Bohol</span>
+                    </div>
+                    
+                    <h1 class="font-display font-black text-6xl lg:text-8xl leading-[0.9] mb-6 tracking-tight">
+                        <span class="block text-gray-900">Create Your</span>
+                        <span class="block gradient-text mt-2">Buldak</span>
+                        <span class="block text-gray-800 mt-2 text-5xl lg:text-7xl">Your Way</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        Experience the viral Korean self-service ramyeon bar. From <span class="text-pink-600 font-bold">Carbonara pink</span> to fiery red, craft your perfect bowl with unlimited toppings.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                        <button onclick="scrollToSection('menu')" class="btn-primary text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl flex items-center justify-center gap-3 group cursor-pointer">
+                            <span>Start Creating</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <button onclick="openMenuModal()" class="bg-white text-pink-600 border-2 border-pink-400 px-10 py-4 rounded-full font-bold text-lg hover:bg-pink-50 transition-all hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="utensils" class="w-5 h-5"></i>
+                            <span>View Full Menu</span>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center justify-center lg:justify-start gap-8 text-sm">
+                        <div class="flex items-center gap-2 text-gray-600 cursor-pointer hover:text-pink-600 transition-colors" onclick="scrollToSection('locations')">
+                            <i data-lucide="store" class="w-5 h-5 text-pink-500"></i>
+                            <span class="font-semibold">3 Branches</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 cursor-pointer hover:text-pink-600 transition-colors" onclick="scrollToSection('menu')">
+                            <i data-lucide="flame" class="w-5 h-5 text-pink-500"></i>
+                            <span class="font-semibold">10+ Flavors</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <i data-lucide="heart" class="w-5 h-5 text-pink-500"></i>
+                            <span class="font-semibold">∞ Combos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative scroll-reveal">
+                    <div class="relative z-10 noodle-float cursor-pointer" onclick="openProductModal('carbonara')">
+                        <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white/60 hover:shadow-pink-500/30 transition-shadow">
+                            <img src="assets/hero.png" alt="Buldak Carbonara Ramyeon" class="w-full object-cover h-[550px]">
+                            <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 via-transparent to-transparent"></div>
+                            <div class="absolute top-6 right-6 bg-white/95 backdrop-blur rounded-2xl p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                                <div class="text-3xl font-black text-pink-600">₱98</div>
+                                <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider">Starting</div>
+                            </div>
+                            <div class="absolute bottom-6 left-6 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-2xl p-4 shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">🌶️</span>
+                                    <div>
+                                        <div class="font-bold text-lg">Custom Spice</div>
+                                        <div class="text-xs opacity-90">Mild to Extreme</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -z-10 -bottom-6 -right-6 w-full h-full bg-gradient-to-br from-pink-300 to-pink-400 rounded-[3rem]"></div>
+                    </div>
+                    
+                    <div class="steam" style="top: 10%; left: 20%;"></div>
+                    <div class="steam" style="top: 5%; left: 50%; animation-delay: 1s;"></div>
+                    <div class="steam" style="top: 15%; left: 70%; animation-delay: 2s;"></div>
+                    
+                    <div class="absolute -top-8 -left-8 bg-white p-4 rounded-2xl shadow-xl animate-bounce cursor-pointer hover:scale-110 transition-transform" style="animation-duration: 3s;" onclick="openProductModal('cheese')">
+                        <span class="text-4xl">🧀</span>
+                    </div>
+                    <div class="absolute top-1/2 -right-12 bg-white p-4 rounded-2xl shadow-xl animate-bounce cursor-pointer hover:scale-110 transition-transform" style="animation-duration: 2.5s; animation-delay: 0.5s;" onclick="openProductModal('egg')">
+                        <span class="text-4xl">🥚</span>
+                    </div>
+                    <div class="absolute -bottom-4 left-1/4 bg-white p-4 rounded-2xl shadow-xl animate-bounce cursor-pointer hover:scale-110 transition-transform" style="animation-duration: 3.5s; animation-delay: 1s;" onclick="openProductModal('sausage')">
+                        <span class="text-4xl">🌭</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wave-separator">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+        
+        <div class="absolute bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce cursor-pointer" onclick="scrollToSection('problem')">
+            <span class="text-pink-600 text-sm font-semibold">_</span>
+            <i data-lucide="chevron-down" class="w-6 h-6 text-pink-500"></i>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section id="problem" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#FFF0F5] to-white"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-pink-100 text-pink-600 rounded-full text-sm font-bold mb-4">₊✩‧₊˚౨ৎ˚₊✩‧₊</span>
+                <h2 class="font-display font-black text-5xl lg:text-6xl mb-6">
+                    Tired of <span class="text-stroke">Boring</span> Instant Noodles?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    You know that 2 AM craving. You want something spicy, creamy, and authentic—but your options are painfully limited...
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group bg-gradient-to-br from-pink-50 to-white rounded-3xl p-8 text-center scroll-reveal card-hover border-2 border-pink-100 relative overflow-hidden cursor-pointer" onclick="scrollToSection('menu')">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-400/0 to-pink-400/0 group-hover:from-pink-400/5 group-hover:to-pink-400/10 transition-all duration-500"></div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl shadow-inner group-hover:scale-110 transition-transform duration-300">
+                        😫
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4 text-gray-800">Same Old Flavors</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Local stores only carry basic chicken or beef. Where's the <span class="text-pink-600 font-semibold">Carbonara</span>? The <span class="text-pink-600 font-semibold">Quattro Cheese</span>? The <span class="text-pink-600 font-semibold">Rosé</span>?
+                    </p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 text-center scroll-reveal card-hover border-2 border-purple-100 relative overflow-hidden cursor-pointer" onclick="scrollToSection('menu')" style="animation-delay: 0.1s">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-400/0 to-purple-400/0 group-hover:from-purple-400/5 group-hover:to-purple-400/10 transition-all duration-500"></div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-200 to-purple-300 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl shadow-inner group-hover:scale-110 transition-transform duration-300">
+                        😤
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4 text-gray-800">No Toppings Bar</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Buying ramyeon is easy. But finding fresh <span class="text-purple-600 font-semibold">eggs</span>, <span class="text-purple-600 font-semibold">cheese</span>, <span class="text-purple-600 font-semibold">sausages</span>, and <span class="text-purple-600 font-semibold">kimchi</span> separately? Too much work.
+                    </p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-orange-50 to-white rounded-3xl p-8 text-center scroll-reveal card-hover border-2 border-orange-100 relative overflow-hidden cursor-pointer" onclick="scrollToSection('locations')" style="animation-delay: 0.2s">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-400/0 to-orange-400/0 group-hover:from-orange-400/5 group-hover:to-orange-400/10 transition-all duration-500"></div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-orange-200 to-orange-300 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl shadow-inner group-hover:scale-110 transition-transform duration-300">
+                        😢
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4 text-gray-800">Missing the Vibe</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        You watch K-Drama characters enjoying ramyeon at convenience stores. Where's <span class="text-orange-600 font-semibold">YOUR</span> Seoul experience in Bohol?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION SECTION -->
+    <section class="py-24 bg-gradient-to-b from-white to-pink-50 relative overflow-hidden">
+        <div class="absolute top-1/2 left-0 w-64 h-64 bg-pink-200 rounded-full filter blur-3xl opacity-30 -translate-y-1/2"></div>
+        <div class="absolute top-1/3 right-0 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal order-2 lg:order-1 relative">
+                    <div class="relative cursor-pointer" onclick="openProductModal('selfservice')">
+                        <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-[2.5rem] transform rotate-3 scale-105 opacity-20"></div>
+                        <img src="assets/hehe.jpg" alt="Self Service Ramyeon Station" class="relative rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px] border-4 border-white">
+                        <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-2xl border border-pink-100 cursor-pointer hover:scale-105 transition-transform" onclick="event.stopPropagation(); openProductModal('selfservice')">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-600"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-gray-900">Authentic</div>
+                                    <div class="text-sm text-gray-500">Korean Experience</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-reveal order-1 lg:order-2">
+                    <div class="inline-flex items-center gap-2 mb-6 px-5 py-2.5 bg-pink-100 rounded-full border border-pink-200 cursor-pointer hover:bg-pink-200 transition-colors" onclick="scrollToSection('menu')">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-pink-600"></i>
+                        <span class="text-pink-700 font-bold text-sm">Satisfy Your Cravings!</span>
+                    </div>
+                    
+                    <h2 class="font-display font-black text-5xl lg:text-6xl mb-6 leading-tight">
+                        Welcome to <br>
+                        <span class="gradient-text">K-Mart</span><br>
+                        <span class="text-gray-700 text-4xl lg:text-5xl">Revolution</span>
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                        Inspired by authentic Korean convenience stores, we've brought the Seoul experience to Bohol. Pick your ramyeon, add your toppings, cook it fresh, and enjoy in our cozy pink space.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-5 group cursor-pointer" onclick="scrollToSection('menu')">
+                            <div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                                1
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl mb-2 text-gray-800">Choose Your Base</h4>
+                                <p class="text-gray-600">From <span class="text-pink-600 font-semibold">Buldak Carbonara</span> (pink!) to Shin Ramyun—10+ authentic Korean varieties waiting for you.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-5 group cursor-pointer" onclick="scrollToSection('menu')">
+                            <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                                2
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl mb-2 text-gray-800">Load Up Toppings</h4>
+                                <p class="text-gray-600">Cheese, sausages, tteokbokki, crab sticks, kimchi, eggs—customize everything to your heart's content.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-5 group cursor-pointer" onclick="scrollToSection('locations')">
+                            <div class="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                                3
+                            </div>
+                            <div>
+                                <h4 class="font-display font-bold text-xl mb-2 text-gray-800">Cook & Enjoy</h4>
+                                <p class="text-gray-600">Use our self-cooking stations and eat in our Instagram-worthy pink space. Cravings = satisfied.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SHOWCASE -->
+    <section id="menu" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-pink-100 text-pink-600 rounded-full text-sm font-bold mb-4 cursor-pointer hover:bg-pink-200 transition-colors" onclick="openMenuModal()">OUR MENU</span>
+                <h2 class="font-display font-black text-5xl lg:text-6xl mb-4">
+                    The <span class="gradient-text">Buldak</span> Collection
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Featuring the viral <span class="text-pink-600 font-bold">Carbonara pink</span>—a creamy, spicy revolution that took over TikTok
+                </p>
+            </div>
+            
+            <div class="mb-16 scroll-reveal">
+                <div class="relative bg-gradient-to-br from-pink-100 via-pink-50 to-white rounded-[2.5rem] p-8 lg:p-12 border-2 border-pink-200 overflow-hidden cursor-pointer" onclick="openProductModal('carbonara')">
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-pink-300 rounded-full filter blur-3xl opacity-20 -mr-20 -mt-20"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-300 rounded-full filter blur-3xl opacity-20 -ml-10 -mb-10"></div>
+                    
+                    <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                                    <i data-lucide="trending-up" class="w-4 h-4"></i>
+                                    BESTSELLER
+                                </span>
+                                <span class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1">
+                                    <i data-lucide="star" class="w-4 h-4 fill-yellow-500"></i>
+                                    4.9/5
+                                </span>
+                            </div>
+                            
+                            <h3 class="font-display font-black text-4xl lg:text-5xl mb-4 text-pink-600">Buldak Carbonara</h3>
+                            <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                                The perfect balance between creamy carbonara and fiery heat. That iconic <span class="text-pink-600 font-bold">pink packaging</span> represents the viral sensation that's taken over TikTok and K-Dramas worldwide.
+                            </p>
+                            
+                            <div class="flex items-center gap-6 mb-8">
+                                <div>
+                                    <span class="text-4xl font-black text-gray-900">₱98</span>
+                                    <span class="text-gray-400 line-through text-xl ml-2">₱120</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-bold border border-red-200">
+                                    Stir-Fried Style
+                                </span>
+                            </div>
+                            
+                            <div class="flex gap-4">
+                                <button onclick="event.stopPropagation(); openProductModal('carbonara')" class="btn-primary text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl flex items-center gap-2 cursor-pointer">
+                                    <i data-lucide="eye" class="w-5 h-5"></i>
+                                    View Details
+                                </button>
+                                <button onclick="event.stopPropagation(); scrollToSection('locations')" class="bg-white border-2 border-pink-300 text-pink-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-50 transition flex items-center gap-2 cursor-pointer">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    Find Store
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 transform hover:scale-[1.02] transition-transform duration-500">
+                                <img src="assets/wows.jpg" alt="Buldak Carbonara" class="w-full object-cover h-[400px]">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                            </div>
+                            
+                            <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-2xl border border-pink-100 max-w-xs">
+                                <div class="flex items-center gap-1 mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">"The creaminess perfectly balances the spice! My new addiction."</p>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center text-pink-600 font-bold text-sm">M</div>
+                                    <span class="text-sm font-semibold text-gray-800">Maria K.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="scroll-reveal">
+                    <div class="flex items-center gap-3 mb-6 cursor-pointer" onclick="openMenuModal()">
+                        <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="flame" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl">Stir-Fried <span class="text-pink-500">₱98</span></h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="product-card group bg-gradient-to-r from-pink-50 to-white rounded-2xl p-5 border border-pink-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('quattro')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/quattro.jpg" alt="Buldak Quattro Cheese" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Buldak Quattro Cheese</h4>
+                                    <p class="text-sm text-gray-500">Four cheese blend explosion</p>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-pink-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card group bg-gradient-to-r from-rose-50 to-white rounded-2xl p-5 border border-rose-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('rose')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/rose.jpg" alt="Buldak Rosé" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Buldak Rosé</h4>
+                                    <p class="text-sm text-gray-500">Creamy tomato fusion</p>
+                                    <span class="text-rose-600 font-bold">₱98</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-rose-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card group bg-gradient-to-r from-red-50 to-white rounded-2xl p-5 border border-red-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('original')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/hotch.jpg" alt="Buldak Hot Chicken" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Buldak Hot Chicken</h4>
+                                    <p class="text-sm text-gray-500">The classic fire chicken</p>
+                                    <span class="text-red-600 font-bold">₱98</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card group bg-gradient-to-r from-yellow-50 to-white rounded-2xl p-5 border border-yellow-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('cheeseramen')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/cheeseramen.jpg" alt="Cheese Ramen" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Cheese Ramen</h4>
+                                    <p class="text-sm text-gray-500">Extra cheesy goodness</p>
+                                    <span class="text-yellow-600 font-bold">₱98</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-reveal" style="animation-delay: 0.1s">
+                    <div class="flex items-center gap-3 mb-6 cursor-pointer" onclick="openMenuModal()">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="soup" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl">Soup Style <span class="text-blue-500">₱88</span></h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="product-card group bg-gradient-to-r from-red-50 to-white rounded-2xl p-5 border border-red-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('shin')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/shin.jpg" alt="Shin Ramyun" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Shin Ramyun</h4>
+                                    <p class="text-sm text-gray-500">Classic Korean spicy</p>
+                                    <span class="text-red-600 font-bold">₱88</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card group bg-gradient-to-r from-orange-50 to-white rounded-2xl p-5 border border-orange-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('jinspicy')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/jinspicy.jpg" alt="Jin Ramen Spicy" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Jin Ramen Spicy</h4>
+                                    <p class="text-sm text-gray-500">Extra kick guaranteed</p>
+                                    <span class="text-orange-600 font-bold">₱88</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card group bg-gradient-to-r from-green-50 to-white rounded-2xl p-5 border border-green-100 card-hover cursor-pointer overflow-hidden" onclick="openProductModal('jinmild')">
+                            <div class="flex items-center gap-4">
+                                <img src="assets/mildjin.jpg" alt="Jin Ramen Mild" class="w-20 h-20 object-cover rounded-xl group-hover:scale-110 transition-transform">
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-gray-800">Jin Ramen Mild</h4>
+                                    <p class="text-sm text-gray-500">Gentle, comforting flavor</p>
+                                    <span class="text-green-600 font-bold">₱88</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 cursor-pointer hover:border-pink-300 transition-colors" onclick="openProductModal('addons')">
+                        <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-pink-500"></i>
+                            Popular Add-ons
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium flex items-center gap-1">
+                                <img src="assets/cheese.png" class="w-4 h-4 rounded-full object-cover">
+                                Cheese ₱25
+                            </span>
+                            <span class="px-3 py-1.5 bg-orange-100 text-orange-700 rounded-full text-sm font-medium flex items-center gap-1">
+                                <img src="assets/sausage.png" class="w-4 h-4 rounded-full object-cover">
+                                Sausage ₱50
+                            </span>
+                            <span class="px-3 py-1.5 bg-red-100 text-red-700 rounded-full text-sm font-medium flex items-center gap-1">
+                                <img src="assets/tteok.png" class="w-4 h-4 rounded-full object-cover">
+                                Tteokbokki ₱20
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-reveal" style="animation-delay: 0.2s">
+                    <div class="flex items-center gap-3 mb-6 cursor-pointer" onclick="openProductModal('addons')">
+                        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl">All Add-ons</h3>
+                    </div>
+                    
+                    <div class="bg-white rounded-3xl p-6 shadow-lg border border-pink-100">
+                        <div class="space-y-3">
+                            <div class="product-card flex justify-between items-center p-4 bg-yellow-50 rounded-xl border border-yellow-200 hover:bg-yellow-100 transition-colors cursor-pointer group" onclick="openProductModal('cheese')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/cheese.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Cheese
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱25</span>
+                            </div>
+                            
+                            <div class="product-card flex justify-between items-center p-4 bg-orange-50 rounded-xl border border-orange-200 hover:bg-orange-100 transition-colors cursor-pointer group" onclick="openProductModal('sausage')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/sausage.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Sausage
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱50</span>
+                            </div>
+                            
+                            <div class="product-card flex justify-between items-center p-4 bg-red-50 rounded-xl border border-red-200 hover:bg-red-100 transition-colors cursor-pointer group" onclick="openProductModal('tteokbokki')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/tteok.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Tteokbokki
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱20</span>
+                            </div>
+                            
+                            <div class="product-card flex justify-between items-center p-4 bg-pink-50 rounded-xl border border-pink-200 hover:bg-pink-100 transition-colors cursor-pointer group" onclick="openProductModal('crabsticks')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/crabst.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Crab Sticks
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱20</span>
+                            </div>
+                            
+                            <div class="product-card flex justify-between items-center p-4 bg-green-50 rounded-xl border border-green-200 hover:bg-green-100 transition-colors cursor-pointer group" onclick="openProductModal('kimchi')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/kimchi.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Kimchi
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱50</span>
+                            </div>
+                            
+                            <div class="product-card flex justify-between items-center p-4 bg-amber-50 rounded-xl border border-amber-200 hover:bg-amber-100 transition-colors cursor-pointer group" onclick="openProductModal('egg')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/egg.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Fresh/Boiled Egg
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱13-15</span>
+                            </div>
+                            
+                            <div class="product-card flex justify-between items-center p-4 bg-blue-50 rounded-xl border border-blue-200 hover:bg-blue-100 transition-colors cursor-pointer group" onclick="openProductModal('fishcake')">
+                                <span class="flex items-center gap-3 font-medium text-gray-700">
+                                    <img src="assets/fc.png" class="w-10 h-10 rounded-lg object-cover group-hover:scale-110 transition-transform">
+                                    Fishcake
+                                </span>
+                                <span class="price-tag text-white px-4 py-1.5 font-bold text-sm">₱20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRINKS SECTION -->
+    <section class="py-24 bg-gradient-to-b from-white to-pink-50 relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-bold mb-4 cursor-pointer hover:bg-blue-200 transition-colors" onclick="openProductModal('drinks')">REFRESHMENTS</span>
+                <h2 class="font-display font-black text-5xl mb-4">Quench Your <span class="text-blue-500">Thirst</span></h2>
+                <p class="text-xl text-gray-600">Complete your meal with authentic Korean beverages</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group bg-white rounded-3xl p-8 shadow-xl border border-blue-100 card-hover scroll-reveal relative overflow-hidden cursor-pointer" onclick="openProductModal('icetalk')">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <img src="assets/ICED.jpg" alt="Ice Talk Drinks" class="w-full h-48 object-cover rounded-2xl mb-6 shadow-md">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 shadow-lg">
+                            🧊
+                        </div>
+                        <h3 class="font-display font-bold text-2xl mb-3 text-gray-800">Ice Talk Series</h3>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Green Grape, Watermelon, Peach Iced Tea, Passion Mango, Blue Lemonade, Pomegranate, Blueberry, Kiwi
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="price-tag text-white px-6 py-2 font-bold text-xl">₱65</div>
+                            <span class="text-gray-400 text-sm">8 flavors</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl p-8 shadow-xl border border-pink-100 card-hover scroll-reveal relative overflow-hidden cursor-pointer" style="animation-delay: 0.1s" onclick="openProductModal('milktea')">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <img src="assets/mt.jpg" alt="Milktea" class="w-full h-48 object-cover rounded-2xl mb-6 shadow-md">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 shadow-lg">
+                            🧋
+                        </div>
+                        <h3 class="font-display font-bold text-2xl mb-3 text-gray-800">Milktea Selection</h3>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Strawberry, Winter Melon, Ube, Matcha, Red Velvet, Cookies & Cream, Caramel
+                        </p>
+                        <div class="flex gap-3">
+                            <div class="price-tag text-white px-4 py-2 font-bold">₱69 <span class="text-xs opacity-75">16oz</span></div>
+                            <div class="price-tag text-white px-4 py-2 font-bold bg-gradient-to-r from-pink-600 to-pink-700">₱98 <span class="text-xs opacity-75">22oz</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl p-8 shadow-xl border border-amber-100 card-hover scroll-reveal relative overflow-hidden cursor-pointer" style="animation-delay: 0.2s" onclick="openProductModal('coffee')">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <img src="assets/ic.jpg" alt="Iced Coffee" class="w-full h-48 object-cover rounded-2xl mb-6 shadow-md">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-600 to-amber-800 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 shadow-lg">
+                            ☕
+                        </div>
+                        <h3 class="font-display font-bold text-2xl mb-3 text-gray-800">Iced Coffee</h3>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                            Caramel Macchiato, Choco Latte, Latte, Americano, Strawberry Latte, Cappuccino
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="price-tag text-white px-6 py-2 font-bold text-xl">₱37 <span class="text-sm opacity-75">16oz</span></div>
+                            <span class="text-gray-400 text-sm">6 variants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS SECTION -->
+    <section id="locations" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-pink-100 text-pink-600 rounded-full text-sm font-bold mb-4">FIND US</span>
+                <h2 class="font-display font-black text-5xl lg:text-6xl mb-4">Visit Our <span class="gradient-text">3 Branches</span></h2>
+                <p class="text-xl text-gray-600">Find your nearest K-Mart in Bohol</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Tabalong Branch -->
+                <div class="group bg-gradient-to-br from-pink-500 to-pink-600 rounded-3xl overflow-hidden card-hover scroll-reveal relative">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"3\"/%3E%3Ccircle cx=\"13\" cy=\"13\" r=\"3\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+                    
+                    <div class="map-container relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.1!2d123.9!3d9.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4c1c00000001%3A0x0!2sTabalong%2C%20Dauis%2C%20Bohol!5e0!3m2!1sen!2sph!4v1234567890"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-600/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 -mt-20 text-white">
+                        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mb-4 backdrop-blur-sm">
+                            🏪
+                        </div>
+                        <h3 class="font-display font-bold text-2xl mb-2">Tabalong Branch</h3>
+                        <p class="text-pink-100 mb-4 leading-relaxed">Dauis, Bohol<br>Olmans Plaza</p>
+                        
+                        <div class="flex gap-3">
+                            <a href="https://maps.google.com/?q=Tabalong+Dauis+Bohol" target="_blank" class="flex-1 bg-white text-pink-600 px-4 py-3 rounded-xl font-bold group-hover:shadow-lg transition-all flex items-center justify-center gap-2 text-center cursor-pointer hover:bg-pink-50">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Open Map
+                            </a>
+                            <button onclick="copyAddress('Tabalong, Dauis, Bohol (Olmans Plaza)')" class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors" title="Copy Address">
+                                <i data-lucide="copy" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Booy Branch -->
+                <div class="group bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl overflow-hidden card-hover scroll-reveal relative" style="animation-delay: 0.1s">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"3\"/%3E%3Ccircle cx=\"13\" cy=\"13\" r=\"3\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+                    
+                    <div class="map-container relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.1!2d123.85!3d9.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4c1c00000002%3A0x0!2sBooy%2C%20Tagbilaran%2C%20Bohol!5e0!3m2!1sen!2sph!4v1234567890"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-600/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 -mt-20 text-white">
+                        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mb-4 backdrop-blur-sm">
+                            🏪
+                        </div>
+                        <h3 class="font-display font-bold text-2xl mb-2">Booy Branch</h3>
+                        <p class="text-purple-100 mb-4 leading-relaxed">Tagbilaran, Bohol<br>Main Branch</p>
+                        
+                        <div class="flex gap-3">
+                            <a href="https://maps.google.com/?q=Booy+Tagbilaran+Bohol" target="_blank" class="flex-1 bg-white text-purple-600 px-4 py-3 rounded-xl font-bold group-hover:shadow-lg transition-all flex items-center justify-center gap-2 text-center cursor-pointer hover:bg-purple-50">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Open Map
+                            </a>
+                            <button onclick="copyAddress('Booy, Tagbilaran, Bohol')" class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors" title="Copy Address">
+                                <i data-lucide="copy" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CPG Branch -->
+                <div class="group bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl overflow-hidden card-hover scroll-reveal relative" style="animation-delay: 0.2s">
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"3\"/%3E%3Ccircle cx=\"13\" cy=\"13\" r=\"3\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+                    
+                    <div class="map-container relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.1!2d123.86!3d9.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aa4c1c00000003%3A0x0!2sCPG%2C%20Tagbilaran%2C%20Bohol!5e0!3m2!1sen!2sph!4v1234567890"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute inset-0 bg-gradient-to-t from-blue-600/80 to-transparent pointer-events-none"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 -mt-20 text-white">
+                        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mb-4 backdrop-blur-sm">
+                            🏪
+                        </div>
+                        <h3 class="font-display font-bold text-2xl mb-2">CPG Branch</h3>
+                        <p class="text-blue-100 mb-4 leading-relaxed">Tagbilaran, Bohol<br>Near CPG Complex</p>
+                        
+                        <div class="flex gap-3">
+                            <a href="https://maps.google.com/?q=CPG+Tagbilaran+Bohol" target="_blank" class="flex-1 bg-white text-blue-600 px-4 py-3 rounded-xl font-bold group-hover:shadow-lg transition-all flex items-center justify-center gap-2 text-center cursor-pointer hover:bg-blue-50">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Open Map
+                            </a>
+                            <button onclick="copyAddress('CPG, Tagbilaran, Bohol')" class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors" title="Copy Address">
+                                <i data-lucide="copy" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center scroll-reveal">
+                <a href="https://www.facebook.com/profile.php?id=100092459983850" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                    <span>Follow us on Facebook for updates & promos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-pink-50 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
+            <div class="text-center scroll-reveal">
+                <span class="inline-block px-4 py-2 bg-white text-pink-600 rounded-full text-sm font-bold mb-4 shadow-sm">TESTIMONIALS</span>
+                <h2 class="font-display font-black text-5xl mb-4">What <span class="gradient-text">Cravings</span> Say</h2>
+            </div>
+        </div>
+        
+        <div class="marquee-container relative z-10">
+            <div class="marquee-content">
+                <div class="inline-flex gap-6 px-3">
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"Finally! The Carbonara Buldak hits different when you can add real cheese and egg."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-pink-200 rounded-full flex items-center justify-center text-pink-700 font-bold text-sm">MK</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Nami K.</div>
+                                <div class="text-xs text-gray-500">Dauis Branch</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"Perfect for late night cravings with friends."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center text-purple-700 font-bold text-sm">JD</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Zoro D.</div>
+                                <div class="text-xs text-gray-500">Tagbilaran</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"Love that I can customize my spice level!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm">SL</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Chopper L.</div>
+                                <div class="text-xs text-gray-500">Booy Branch</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"The staff were super friendly!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm">MT</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Maomao T.</div>
+                                <div class="text-xs text-gray-500">CPG Branch</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="inline-flex gap-6 px-3">
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"The pink aesthetic is so Instagrammable too!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-pink-200 rounded-full flex items-center justify-center text-pink-700 font-bold text-sm">MK</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Jean K.</div>
+                                <div class="text-xs text-gray-500">Dauis Branch</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"I love the food, the vibes!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center text-purple-700 font-bold text-sm">JD</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Luffy D.</div>
+                                <div class="text-xs text-gray-500">Tagbilaran</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"Love that I can customize my spice level! Staff is super friendly and the milktea + buldak combo is perfect. My new hangout spot!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm">SL</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Sarah L.</div>
+                                <div class="text-xs text-gray-500">Booy Branch</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-white rounded-2xl p-6 shadow-lg border border-pink-100 flex-shrink-0">
+                        <div class="flex text-yellow-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 mb-4 text-sm leading-relaxed">"Best Ice Talk drinks! So refreshing after spicy noodles."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm">MT</div>
+                            <div>
+                                <div class="font-bold text-sm text-gray-900">Arien T.</div>
+                                <div class="text-xs text-gray-500">CPG Branch</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-24 bg-gradient-to-br from-pink-500 via-pink-600 to-pink-700 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 scroll-reveal">
+            <h2 class="font-display font-black text-5xl lg:text-7xl text-white mb-6 leading-tight">
+                Ready to Satisfy<br>
+                <span class="text-pink-200">Your Cravings?</span>
+            </h2>
+            <p class="text-xl text-pink-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Visit The Craving's K-Mart today. Your perfect bowl of Buldak awaits—creamy, spicy, and exactly how you want it.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <button onclick="scrollToSection('locations')" class="bg-white text-pink-600 px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:scale-105 transition-transform flex items-center justify-center gap-3 group cursor-pointer">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    <span>Find Nearest Branch</span>
+                </button>
+                <button onclick="openMenuModal()" class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition flex items-center justify-center gap-3 cursor-pointer">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    <span>View Full Menu</span>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2">3</div>
+                    <div class="text-pink-200 text-sm font-semibold uppercase tracking-wider">Branches</div>
+                </div>
+                <div class="text-center border-x border-white/20">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2">10+</div>
+                    <div class="text-pink-200 text-sm font-semibold uppercase tracking-wider">Ramen Varieties</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl lg:text-5xl font-black text-white mb-2">∞</div>
+                    <div class="text-pink-200 text-sm font-semibold uppercase tracking-wider">Combinations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.03\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"15\" cy=\"15\" r=\"2\"/%3E%3C/g%3E%3C/svg%3E')]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-1">
+                    <a href="#home" class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">K</div>
+                        <div>
+                            <span class="font-display font-bold text-xl block leading-none">The Craving's</span>
+                            <span class="font-display font-bold text-lg text-pink-400 leading-none">K-Mart</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Your go-to spot for satisfying Korean food cravings in Bohol. Self-service, authentic flavors, unforgettable experience.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/profile.php?id=100092459983850" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition-all">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#home" class="hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer"><i data-lucide="chevron-right" class="w-4 h-4"></i> Home</a></li>
+                        <li><a href="#menu" class="hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer"><i data-lucide="chevron-right" class="w-4 h-4"></i> Products</a></li>
+                        <li><a href="#locations" class="hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer"><i data-lucide="chevron-right" class="w-4 h-4"></i> Locations</a></li>
+                        <li><a href="#problem" class="hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer"><i data-lucide="chevron-right" class="w-4 h-4"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-6 text-white">Our Branches</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3 cursor-pointer hover:text-pink-400 transition-colors" onclick="scrollToSection('locations')">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-pink-500 flex-shrink-0 mt-0.5"></i>
+                            <span>Tabalong, Dauis, Bohol<br><span class="text-xs">Olmans Plaza</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 cursor-pointer hover:text-pink-400 transition-colors" onclick="scrollToSection('locations')">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5"></i>
+                            <span>Booy, Tagbilaran, Bohol</span>
+                        </li>
+                        <li class="flex items-start gap-3 cursor-pointer hover:text-pink-400 transition-colors" onclick="scrollToSection('locations')">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span>CPG, Tagbilaran, Bohol</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-6 text-white">Contact</h4>
+                    <a href="https://www.facebook.com/profile.php?id=100092459983850" target="_blank" class="inline-flex items-center gap-2 text-gray-400 hover:text-pink-400 transition-colors mb-4">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                        <span>The Craving's K-Mart</span>
+                    </a>
+                    <p class="text-gray-500 text-sm mt-4">Open daily for your cravings!</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 The Craving's K-Mart. All rights reserved.</p>
+                <p class="text-gray-500 text-sm flex items-center gap-2">
+                    <span>Made with</span>
+                    <i data-lucide="heart" class="w-4 h-4 text-pink-500 fill-pink-500"></i>
+                    <span>in Bohol</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Product Data
+        const products = {
+            carbonara: {
+                name: "Buldak Carbonara",
+                price: "₱98",
+                image: "assets/carb.jpg",
+                description: "The viral sensation! Creamy carbonara sauce meets fiery Korean spice. Perfectly balanced for those who love rich, cheesy flavors with a kick.",
+                category: "Stir-Fried",
+                spice: "Medium",
+                tags: ["Bestseller", "Creamy", "Spicy"]
+            },
+            quattro: {
+                name: "Buldak Quattro Cheese",
+                price: "₱98",
+                image: "assets/quattro.jpg",
+                description: "Four types of cheese blend together for the ultimate cheesy experience. Mozzarella, cheddar, gouda, and camembert create a flavor explosion.",
+                category: "Stir-Fried",
+                spice: "Mild",
+                tags: ["Cheesy", "Rich"]
+            },
+            rose: {
+                name: "Buldak Rosé",
+                price: "₱98",
+                image: "assets/rose.jpg",
+                description: "A beautiful fusion of creamy tomato and spicy buldak sauce. The pink hue makes it as Instagram-worthy as it is delicious.",
+                category: "Stir-Fried",
+                spice: "Medium",
+                tags: ["Trending", "Creamy"]
+            },
+            original: {
+                name: "Buldak Hot Chicken",
+                price: "₱98",
+                image: "assets/hotch.jpg",
+                description: "The classic that started it all. Intense heat with savory chicken flavor. For true spice lovers only!",
+                category: "Stir-Fried",
+                spice: "Extreme",
+                tags: ["Classic", "Very Spicy"]
+            },
+            cheeseramen: {
+                name: "Cheese Ramen",
+                price: "₱98",
+                image: "assets/cheeseramen.jpg",
+                description: "Extra cheesy version of the classic. Perfect for cheese lovers who want a milder spice level.",
+                category: "Stir-Fried",
+                spice: "Mild",
+                tags: ["Cheesy", "Mild"]
+            },
+            shin: {
+                name: "Shin Ramyun",
+                price: "₱88",
+                image: "assets/shin.jpg",
+                description: "Korea's most famous ramyeon. Rich beef broth with vegetables and the signature Shin Ramyun spice.",
+                category: "Soup",
+                spice: "Spicy",
+                tags: ["Classic", "Soup"]
+            },
+            jinspicy: {
+                name: "Jin Ramen Spicy",
+                price: "₱88",
+                image: "assets/jinspicy.jpg",
+                description: "Premium ramyeon with a spicy kick. Chewy noodles in a rich, flavorful broth.",
+                category: "Soup",
+                spice: "Spicy",
+                tags: ["Premium", "Soup"]
+            },
+            jinmild: {
+                name: "Jin Ramen Mild",
+                price: "₱88",
+                image: "assets/mildjin.jpg",
+                description: "The same premium quality without the intense heat. Perfect for those who prefer milder flavors.",
+                category: "Soup",
+                spice: "Mild",
+                tags: ["Mild", "Soup"]
+            },
+            cheese: {
+                name: "Cheese Add-on",
+                price: "₱25",
+                image: "assets/cheese.png",
+                description: "Mozzarella cheese slices that melt perfectly into your hot ramyeon. Adds creaminess and richness.",
+                category: "Add-on",
+                spice: "None",
+                tags: ["Essential"]
+            },
+            sausage: {
+                name: "Sausage Add-on",
+                price: "₱50",
+                image: "assets/sausage.png",
+                description: "Premium Korean-style sausages. Juicy and flavorful, perfect for adding protein to your bowl.",
+                category: "Add-on",
+                spice: "None",
+                tags: ["Protein"]
+            },
+            tteokbokki: {
+                name: "Tteokbokki Add-on",
+                price: "₱20",
+                image: "assets/tteok.png",
+                description: "Chewy rice cakes that add texture and authenticity to your Korean ramyeon experience.",
+                category: "Add-on",
+                spice: "None",
+                tags: ["Texture"]
+            },
+            crabsticks: {
+                name: "Crab Sticks Add-on",
+                price: "₱20",
+                image: "assets/crabst.png",
+                description: "Sweet crab-flavored fish cakes. A classic Korean ramyeon topping.",
+                category: "Add-on",
+                spice: "None",
+                tags: ["Seafood"]
+            },
+            kimchi: {
+                name: "Kimchi Add-on",
+                price: "₱50",
+                image: "assets/kimchi.png",
+                description: "Authentic Korean fermented cabbage. Adds tanginess and probiotics to your meal.",
+                category: "Add-on",
+                spice: "Medium",
+                tags: ["Authentic", "Healthy"]
+            },
+            egg: {
+                name: "Fresh/Boiled Egg",
+                price: "₱13-15",
+                image: "assets/egg.png",
+                description: "Fresh eggs cooked to perfection. Choose from soft-boiled or hard-boiled.",
+                category: "Add-on",
+                spice: "None",
+                tags: ["Protein", "Essential"]
+            },
+            fishcake: {
+                name: "Fishcake Add-on",
+                price: "₱20",
+                image: "assets/fc.png",
+                description: "Traditional Korean fishcakes (odeng). Mild flavor with great texture.",
+                category: "Add-on",
+                spice: "None",
+                tags: ["Traditional"]
+            },
+            icetalk: {
+                name: "Ice Talk Series",
+                price: "₱65",
+                image: "assets/it.png",
+                description: "Refreshing Korean ade drinks. Available in Green Grape, Watermelon, Peach Iced Tea, Passion Mango, Blue Lemonade, Pomegranate, Blueberry, and Kiwi flavors.",
+                category: "Drink",
+                spice: "None",
+                tags: ["Refreshing", "8 Flavors"]
+            },
+            milktea: {
+                name: "Milktea Selection",
+                price: "₱69 - ₱98",
+                image: "assets/mt.png",
+                description: "Creamy milktea in various flavors. Choose from 16oz (₱69) or 22oz (₱98). Flavors: Strawberry, Winter Melon, Ube, Matcha, Red Velvet, Cookies & Cream, Caramel.",
+                category: "Drink",
+                spice: "None",
+                tags: ["Creamy", "7 Flavors"]
+            },
+            coffee: {
+                name: "Iced Coffee",
+                price: "₱37",
+                image: "assets/c.png",
+                description: "Premium iced coffee to complement your spicy meal. Available: Caramel Macchiato, Choco Latte, Latte, Americano, Strawberry Latte, Cappuccino.",
+                category: "Drink",
+                spice: "None",
+                tags: ["Caffeine", "6 Variants"]
+            },
+            selfservice: {
+                name: "Self-Service Experience",
+                price: "Free",
+                image: "assets/solution.png",
+                description: "Cook your own ramyeon just like in Korea! We provide the cooking station, utensils, and instructions. It's fun, interactive, and ensures your noodles are cooked exactly how you like them.",
+                category: "Experience",
+                spice: "Medium",
+                tags: ["Interactive", "Authentic", "Fun"]
+            },
+            addons: {
+                name: "All Add-ons",
+                price: "₱13-50",
+                image: "assets/addons.jpg",
+                description: "Customize your bowl with our wide selection of toppings. Mix and match to create your perfect combination!",
+                category: "Add-ons",
+                spice: "Various",
+                tags: ["Customizable"]
+            },
+            drinks: {
+                name: "All Drinks",
+                price: "₱37-98",
+                image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80",
+                description: "Complete your meal with our selection of Korean beverages. From refreshing ades to creamy milktea and coffee.",
+                category: "Drinks",
+                spice: "None",
+                tags: ["Variety"]
+            }
+        };
+        
+        // Modal Functions
+        function openProductModal(productId) {
+            const product = products[productId];
+            if (!product) return;
+            
+            const modal = document.getElementById('productModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <div class="grid md:grid-cols-2">
+                    <div class="relative h-64 md:h-full">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:hidden"></div>
+                        <div class="absolute bottom-4 left-4 text-white md:hidden">
+                            <h3 class="font-display font-bold text-2xl">${product.name}</h3>
+                            <p class="text-3xl font-black">${product.price}</p>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="hidden md:block mb-6">
+                            <span class="inline-block px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-bold mb-3">${product.category}</span>
+                            <h3 class="font-display font-black text-3xl text-gray-900 mb-2">${product.name}</h3>
+                            <p class="text-4xl font-black text-pink-600">${product.price}</p>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-6 leading-relaxed">${product.description}</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            ${product.tags.map(tag => `<span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">${tag}</span>`).join('')}
+                        </div>
+                        
+                        <div class="flex items-center gap-4 mb-8 p-4 bg-pink-50 rounded-xl">
+                            <i data-lucide="flame" class="w-6 h-6 text-pink-500"></i>
+                            <div>
+                                <span class="text-sm text-gray-500">Spice Level</span>
+                                <p class="font-bold text-gray-800">${product.spice}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button onclick="scrollToSection('locations'); closeModal();" class="flex-1 btn-primary text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                Find Store
+                            </button>
+                            <button onclick="closeModal()" class="px-6 py-3 border-2 border-gray-200 rounded-xl font-bold text-gray-600 hover:bg-gray-50 transition-colors">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            lucide.createIcons();
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function openMenuModal() {
+            const modal = document.getElementById('productModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <div class="p-8 max-h-[80vh] overflow-y-auto">
+                    <h2 class="font-display font-black text-3xl mb-6 text-center">Complete Menu</h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="font-display font-bold text-xl mb-4 text-pink-600 flex items-center gap-2">
+                                <i data-lucide="flame" class="w-5 h-5"></i>
+                                Stir-Fried Ramyeon - ₱98
+                            </h3>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="p-4 bg-pink-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Buldak Carbonara</span>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                                <div class="p-4 bg-pink-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Buldak Quattro Cheese</span>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                                <div class="p-4 bg-pink-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Buldak Rosé</span>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                                <div class="p-4 bg-pink-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Buldak Original</span>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                                <div class="p-4 bg-pink-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Buldak Cheese</span>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                                <div class="p-4 bg-pink-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Cheese Ramen</span>
+                                    <span class="text-pink-600 font-bold">₱98</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-display font-bold text-xl mb-4 text-blue-600 flex items-center gap-2">
+                                <i data-lucide="soup" class="w-5 h-5"></i>
+                                Soup Ramyeon - ₱88
+                            </h3>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="p-4 bg-blue-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Shin Ramyun</span>
+                                    <span class="text-blue-600 font-bold">₱88</span>
+                                </div>
+                                <div class="p-4 bg-blue-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Jin Ramen (Spicy)</span>
+                                    <span class="text-blue-600 font-bold">₱88</span>
+                                </div>
+                                <div class="p-4 bg-blue-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Jin Ramen (Mild)</span>
+                                    <span class="text-blue-600 font-bold">₱88</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-display font-bold text-xl mb-4 text-yellow-600 flex items-center gap-2">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                                Add-ons
+                            </h3>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Cheese</span>
+                                    <span class="text-yellow-600 font-bold">₱25</span>
+                                </div>
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Sausage</span>
+                                    <span class="text-yellow-600 font-bold">₱50</span>
+                                </div>
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Tteokbokki</span>
+                                    <span class="text-yellow-600 font-bold">₱20</span>
+                                </div>
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Crab Sticks</span>
+                                    <span class="text-yellow-600 font-bold">₱20</span>
+                                </div>
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Kimchi</span>
+                                    <span class="text-yellow-600 font-bold">₱50</span>
+                                </div>
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Fresh/Boiled Egg</span>
+                                    <span class="text-yellow-600 font-bold">₱13-15</span>
+                                </div>
+                                <div class="p-4 bg-yellow-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Fishcake</span>
+                                    <span class="text-yellow-600 font-bold">₱20</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-display font-bold text-xl mb-4 text-purple-600 flex items-center gap-2">
+                                <i data-lucide="cup" class="w-5 h-5"></i>
+                                Drinks
+                            </h3>
+                            <div class="grid sm:grid-cols-2 gap-3">
+                                <div class="p-4 bg-purple-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Ice Talk (8 flavors)</span>
+                                    <span class="text-purple-600 font-bold">₱65</span>
+                                </div>
+                                <div class="p-4 bg-purple-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Milktea 16oz</span>
+                                    <span class="text-purple-600 font-bold">₱69</span>
+                                </div>
+                                <div class="p-4 bg-purple-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Milktea 22oz</span>
+                                    <span class="text-purple-600 font-bold">₱98</span>
+                                </div>
+                                <div class="p-4 bg-purple-50 rounded-xl flex justify-between items-center">
+                                    <span class="font-medium">Iced Coffee</span>
+                                    <span class="text-purple-600 font-bold">₱37</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <button onclick="closeModal()" class="px-8 py-3 bg-gray-100 hover:bg-gray-200 rounded-full font-bold text-gray-700 transition-colors">
+                            Close Menu
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            lucide.createIcons();
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal on outside click
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Copy address to clipboard
+        function copyAddress(address) {
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = event.currentTarget;
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i>';
+                lucide.createIcons();
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    lucide.createIcons();
+                }, 2000);
+            });
+        }
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Scroll Reveal Animation
+        gsap.utils.toArray('.scroll-reveal').forEach((element) => {
+            gsap.fromTo(element, 
+                {
+                    opacity: 0,
+                    y: 50,
+                    scale: 0.95
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+        
+        // Parallax effect for hero blobs
+        gsap.to(".blob", {
+            yPercent: 30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#home",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
